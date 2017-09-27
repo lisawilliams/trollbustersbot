@@ -12,6 +12,21 @@ welcome: # this is the #welcome bloc referenced in index.js
   - text: You can say goodbye now
     typing: 1s
 
+# From list template example
+
+listOfCities:
+  - template_type: list
+    elements:
+      {{#cities}}
+      - title: {{name}}
+        subtitle: |
+          Some very random text about the city of {{name}}.
+          {{name}} is a very beautiful city.
+        image_url: "{{{image}}}"
+        buttons:
+          - <PICK_CITY_{{code}}> Pick
+      {{/cities}}
+
 goodbye:
   - text: You are leaving because of reason {{reason}}
     typing: true

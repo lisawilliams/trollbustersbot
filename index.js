@@ -3,7 +3,7 @@
 
   This is the programmatic entry point of your bot.
   Your bot's logic resides here.
-  
+
   Here's the next steps for you:
   1. Read this file to understand how this simple bot works
   2. Read the `content.yml` file to understand how messages are sent
@@ -19,12 +19,20 @@
   Our Slack Community: https://slack.botpress.io
 */
 
+const staticData = require('./static_data')
+
 module.exports = function(bp) {
   // Listens for a first message (this is a Regex)
   // GET_STARTED is the first message you get on Facebook Messenger
   bp.hear(/GET_STARTED|hello|hi|test|hey|holla/i, (event, next) => {
     event.reply('#welcome') // See the file `content.yml` to see the block
   })
+
+  // from the list template example
+
+  bp.hear('MENU_SEND_EX_05', (event, next) => {
+  event.reply('#listOfCities', { cities: _.take(staticData.cities, 3) })
+})
 
   // You can also pass a matcher object to better filter events
   bp.hear({
