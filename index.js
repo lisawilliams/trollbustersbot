@@ -18,7 +18,8 @@
   Documentation: https://botpress.io/docs
   Our Slack Community: https://slack.botpress.io
 */
-
+const Promise = require('bluebird');
+const _ = require('lodash');
 const staticData = require('./static_data')
 
 // Commenting this out to see if we can trigger the list block
