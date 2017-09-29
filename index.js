@@ -48,7 +48,7 @@ const pickCategory = {
     quick_replies: [
         {
             content_type: 'text',
-            title: '🔥 Pedir algo 🔥',
+            title: 'Website attack',
             payload: 'PEDIDO'
         },
         {
@@ -82,12 +82,10 @@ module.exports = function (bp) {
         bp.logger.info('New user:', first_name, last_name)
 
         const WELCOME_SENTENCES = [
-            "Hola! Yo soy BOB! Tu asistente personal en línea para servicio a domicilio.",
-            "Puedes pedirme lo que necesites y yo te lo llevo hasta la puesta de tu casa.",
-            "¿Que deseas hoy?"
+            "Are you being harassed online? What's happening right now?"
         ]
 
-        const WELCOME_TEXT_QUICK_REPLY = "Elige una categoría de abajo o usa el menú en cualquier momento que lo necesites!"
+        const WELCOME_TEXT_QUICK_REPLY = "Choose one of the categories below to be connected with help and resources."
 
         Promise.mapSeries(WELCOME_SENTENCES, txt => {
             bp.messenger.sendText(event.user.id, txt, { typing: true })
@@ -103,7 +101,7 @@ module.exports = function (bp) {
         type: 'quick_reply',
         text: 'PEDIDO'
     }, (event, next) => {
-        const PICK_TEXT = "Utiliza la palabra Pedir + la lista de lo que necesitas separando cada artículo con una ',' y lo más detallado posible."
+        const PICK_TEXT = "We're sorry to hear someone is attacking your site."
         bp.messenger.sendText(event.user.id, PICK_TEXT, { typing: true })
         Promise.delay(3000)
             .then(() => {
