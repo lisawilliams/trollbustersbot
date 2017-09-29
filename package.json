@@ -4,9 +4,14 @@
   "description": "A bot to help people who are facing online harassment find resources and take action",
   "main": "index.js",
   "dependencies": {
+    "bluebird": "^3.5.0",
     "botpress": "1.x",
     "botpress-messenger": "^2.2.9",
-    "botpress-web": "1.x"
+    "botpress-web": "1.x",
+    "lodash": "^4.17.4"
+  },
+  "engines": {
+    "node": ">= 8.0"
   },
   "scripts": {
     "start": "botpress start",
