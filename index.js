@@ -21,16 +21,22 @@
 
 const staticData = require('./static_data')
 
+// Commenting this out to see if we can trigger the list block
+
 module.exports = function(bp) {
-  // Listens for a first message (this is a Regex)
-  // GET_STARTED is the first message you get on Facebook Messenger
-  bp.hear(/GET_STARTED|hello|hi|test|hey|holla/i, (event, next) => {
-    event.reply('#welcome') // See the file `content.yml` to see the block
-  })
+//   // Listens for a first message (this is a Regex)
+//   // GET_STARTED is the first message you get on Facebook Messenger
+//   bp.hear(/GET_STARTED|hello|hi|test|hey|holla/i, (event, next) => {
+//     event.reply('#welcome') // See the file `content.yml` to see the block
+//   })
 
   // from the list template example
 
-  bp.hear('MENU_SEND_EX_05', (event, next) => {
+  // bp.hear('MENU_SEND_EX_05', (event, next) => {
+
+// Swapping out above line to trigger list block on startup
+  bp.hear(/GET_STARTED|hello|hi|test|hey|holla/i, (event, next) => {
+
   event.reply('#listOfCities', { cities: _.take(staticData.cities, 3) })
 })
 
