@@ -50,5 +50,5 @@ jspm_packages
 # Want to keep track of Facebook settings but not commit them
 .facebook-settings
 
-# Want to keep track of Heroku settings but not commit them *
+# Want to keep track of Heroku settings but not commit them **
 .heroku-settings
