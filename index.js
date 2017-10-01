@@ -102,10 +102,14 @@ module.exports = function (bp) {
         text: 'PEDIDO'
     }, (event, next) => {
         const PICK_TEXT = "We're sorry to hear someone is attacking your site."
+        // const image = "https://maxcdn.icons8.com/Share/icon/color/Gaming//pokecoin1600.png"
         bp.messenger.sendText(event.user.id, PICK_TEXT, { typing: true })
         Promise.delay(3000)
             .then(() => {
-                bp.messenger.sendText(event.user.id, 'Ej. Pedido 2 botellas de agua mineral, 1 cacahuates salados, 2 paquetes de donas')
+                // bp.messenger.sendText(event.user.id, 'Ej. Pedido 2 botellas de agua mineral, 1 cacahuates salados, 2 paquetes de donas')
+                const RESPONSE_IMAGE = "https://maxcdn.icons8.com/Share/icon/color/Gaming//pokecoin1600.png"
+                bp.messenger.sendAttachment(event.user.id, RESPONSE_IMAGE, "https://maxcdn.icons8.com/Share/icon/color/Gaming//pokecoin1600.png")
+
             })
     })
     bp.hear({
